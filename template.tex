@@ -1,0 +1,92 @@
+%Simple slideshow for the BIRC lobby
+%each slide will be shown for a fixed period of time
+%Duplicate slides to increase duration
+%R. Hancock 9/26/17
+
+\documentclass[aspectratio=169]{beamer}
+\usepackage{lmodern}
+
+\usetheme{Rochester}
+%gets rid of bottom navigation bars
+\setbeamertemplate{footline}[frame number]{}
+
+%gets rid of bottom navigation symbols
+\setbeamertemplate{navigation symbols}{}
+\setbeamercolor{structure}{fg=beamer@uconnnavy}
+\definecolor{beamer@uconnnavy}{rgb}{0.0,0.0549,0.1843}
+
+\makeatletter
+    \newenvironment{withoutheadline}{
+        \setbeamertemplate{headline}[default]
+        \def\beamer@entrycode{\vspace*{-\headheight}}
+    }{}
+\makeatother
+
+%gets rid of footer
+%will override 'frame number' instruction above
+%comment out to revert to previous/default definitions
+\setbeamertemplate{footline}{}
+\begin{document}
+
+
+%%% Logo
+\begin{withoutheadline}\begin{frame}
+
+	\begin{center}
+		\includegraphics[width=\textwidth]{img/logo.png}
+	\end{center}
+\end{frame}\end{withoutheadline}
+
+
+%%% An individual profile
+\begin{frame}
+	\frametitle{John Doe}
+	\framesubtitle{Professor\\ \textit{Department of Psychological Sciences}}
+
+	\begin{columns}[T]
+		\begin{column}{.25\textwidth}
+			% \begin{block}{}
+			\includegraphics[width=\textwidth]{img/image.jpg}
+			%  \end{block}
+		\end{column}
+
+		\begin{column}{.75\textwidth}
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		\end{column}
+	\end{columns}
+\end{frame}
+
+%%% A project with title and wide image below the description
+
+\begin{frame}
+	\frametitle{Title}
+
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
+	
+	\begin{center}
+		\includegraphics[height=.6\textheight]{img/wide_image.jpg}
+	\end{center}
+
+\end{frame}
+
+
+
+%%%% A poster
+\begin{withoutheadline}\begin{frame}
+
+	\begin{center}
+		\includegraphics[height=.98\paperheight]{img/poster.pdf}
+	\end{center}
+\end{frame}\end{withoutheadline}
+
+%%%% The poster frame is duplicated so that appears for more time than other slides
+\begin{withoutheadline}\begin{frame}
+
+	\begin{center}
+		\includegraphics[height=.98\paperheight]{img/poster.pdf}
+	\end{center}
+\end{frame}\end{withoutheadline}
+
+
+
+\end{document}
